@@ -1,0 +1,53 @@
+$placeholder-black: #7a7a7a;
+$primary-grey: #f3f5fa;
+
+html,
+body {
+    touch-action: manipulation;
+}
+
+body {
+    margin: 0px;
+    font-family: 'Noto Sans TC';
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+::-webkit-input-placeholder {
+    color: $placeholder-black;
+}
+
+:-moz-placeholder {
+    color: $placeholder-black;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    color: $placeholder-black;
+    opacity: 1;
+}
+
+::-ms-placeholder {
+    color: $placeholder-black;
+    opacity: 1;
+}
+
+::placeholder {
+    color: $placeholder-black;
+}
+
+input, textarea {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: $primary-grey;
+    border: 1px solid $primary-grey;
+    box-sizing: border-box;
+    border-radius: 3px;
+    outline: none;
+    resize: none;
+    font-family: 'Noto Sans TC';
+}
