@@ -10,7 +10,7 @@ class NormalLayout extends React.Component {
             <div className={styles.normal_layout}>
                 <Sidebar />
                 <div className={styles.page_view}>
-                    <Route path="/board/:id?" exact component={Board} />
+                    <Route path='/board/:id?' exact component={Board} />
                 </div>
             </div>
 

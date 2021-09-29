@@ -1,8 +1,9 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { CSSTransition } from 'react-transition-group'
 import Item from '../Item'
 import Detail from '../Detail'
 import styles from './style.module.scss'
+import './animation.scss'
 
 
 interface PropsInterface {
@@ -24,7 +25,13 @@ interface StateInterface<ItemInterface> {
     memoList: ItemInterface[]
 }
 
+
 class Board extends React.Component<PropsInterface, StateInterface<ItemInterface>> {
+    constructor(props: PropsInterface) {
+        super(props)
+        this.myRef = React.createRef();
+    }
+    myRef: React.RefObject<HTMLDivElement> | undefined = undefined;
     public readonly state: StateInterface<ItemInterface> = {
         memoList: [{
             id: 'A000001',
@@ -105,10 +112,17 @@ class Board extends React.Component<PropsInterface, StateInterface<ItemInterface
         }</div>
 
         return (
+
             <div className={styles.memo}>
                 {memoList}
-                <Route path='/board/:id' render={() =>
-                    <div className={styles.memo_detail}>
+                <CSSTransition
+                    classNames='detail'
+                    nodeRef={this.myRef}
+                    in={this.props.match.params.id !== undefined}
+                    unmountOnExit
+                    timeout={1000}
+                >
+                    <div ref={this.myRef} className={styles.memo_detail}>
                         <Detail key={this.memoDetail.id}
                             id={this.memoDetail.id}
                             date={this.memoDetail.date}
@@ -119,7 +133,7 @@ class Board extends React.Component<PropsInterface, StateInterface<ItemInterface
                             updateContent={this.updateContent.bind(this)}
                         />
                     </div>
-                } />
+                </CSSTransition>
             </div>
 
         )
