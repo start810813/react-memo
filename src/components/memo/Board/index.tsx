@@ -1,5 +1,7 @@
 import React from 'react'
+import { RouteComponentProps } from 'react-router-dom'
 import { CSSTransition } from 'react-transition-group'
+import { v4 as uuidv4 } from 'uuid'
 import Item from '../Item'
 import Detail from '../Detail'
 import styles from './style.module.scss'
@@ -7,6 +9,8 @@ import './animation.scss'
 
 
 interface PropsInterface {
+    history: RouteComponentProps['history']
+    location: RouteComponentProps['location']
     match: {
         params: {
             id: string
@@ -22,7 +26,7 @@ interface ItemInterface {
 }
 
 interface StateInterface<ItemInterface> {
-    memoList: ItemInterface[]
+    memoList: ItemInterface[] | []
 }
 
 
@@ -33,17 +37,11 @@ class Board extends React.Component<PropsInterface, StateInterface<ItemInterface
     }
     myRef: React.RefObject<HTMLDivElement> | undefined = undefined;
     public readonly state: StateInterface<ItemInterface> = {
-        memoList: [{
-            id: 'A000001',
-            title: 'A000001',
-            date: '2021-09-28',
-            content: '內容1'
-        }, {
-            id: 'A000002',
-            title: 'A000002',
-            date: '2021-09-26',
-            content: '內容2'
-        }]
+        memoList: JSON.parse(window.localStorage.getItem('memoList') || JSON.stringify([this.getNewEmptyMemo()]))
+    }
+    componentDidUpdate() {
+        this.createdMemo()
+        window.localStorage.setItem('memoList', JSON.stringify(this.state.memoList))
     }
     get memoDetail(): ItemInterface {
         const detail = this.state.memoList.filter((item) => item.id === this.props.match.params.id)[0]
@@ -54,7 +52,6 @@ class Board extends React.Component<PropsInterface, StateInterface<ItemInterface
             date: '',
             content: ''
         }
-
     }
     public updateTitle(id: string, value: string): void {
         this.setState({
@@ -98,6 +95,35 @@ class Board extends React.Component<PropsInterface, StateInterface<ItemInterface
             })
         })
     }
+    public deleteMemo(id: string): void {
+        this.setState({
+            memoList: this.state.memoList.filter((memo) => memo.id !== id)
+        })
+    }
+    public createdMemo(): void {
+        const notEmptyMemoList = this.state.memoList.filter((memo) => {
+            return memo.title !== '' ||
+                memo.date !== '' ||
+                memo.content !== ''
+        })
+        if ((this.state.memoList.length - notEmptyMemoList.length) === 0)
+            this.setState({
+                memoList: [...this.state.memoList, this.getNewEmptyMemo()]
+            })
+        else if ((this.state.memoList.length - notEmptyMemoList.length) >= 2) {
+            this.setState({
+                memoList: [...notEmptyMemoList, this.getNewEmptyMemo()]
+            })
+        }
+    }
+    public getNewEmptyMemo(): ItemInterface {
+        return {
+            id: uuidv4(),
+            title: '',
+            date: '',
+            content: ''
+        }
+    }
     render(): React.ReactChild {
         const memoList = <div className={styles.memo_list}>{
             this.state.memoList.map((item) => {
@@ -112,7 +138,6 @@ class Board extends React.Component<PropsInterface, StateInterface<ItemInterface
         }</div>
 
         return (
-
             <div className={styles.memo}>
                 {memoList}
                 <CSSTransition
@@ -128,9 +153,11 @@ class Board extends React.Component<PropsInterface, StateInterface<ItemInterface
                             date={this.memoDetail.date}
                             title={this.memoDetail.title}
                             content={this.memoDetail.content}
+                            history={this.props.history}
                             updateTitle={this.updateTitle.bind(this)}
                             updateDate={this.updateDate.bind(this)}
                             updateContent={this.updateContent.bind(this)}
+                            deleteMemo={this.deleteMemo.bind(this)}
                         />
                     </div>
                 </CSSTransition>

@@ -18,7 +18,16 @@
             padding: 5px 10px;
             background-color: #ffffff;
         }
-    } 
+    }
+
+    .control {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .delete {
+        cursor: pointer;
+    }
 
     .content {
         textarea {

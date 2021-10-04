@@ -12,18 +12,27 @@ interface PropsInterface {
 
 class Item extends React.Component<PropsInterface> {
     render(): React.ReactChild {
-        const title = <input type="text" value={this.props.title} onInput={
-            (event: React.ChangeEvent<HTMLInputElement>): void => {
-                const val = event?.target?.value || ''
-                this.props.updateTitle(this.props.id, val)
+        const title = <input type="text"
+            value={this.props.title}
+            placeholder='請輸入記事標題..'
+            onInput={
+                (event: React.ChangeEvent<HTMLInputElement>): void => {
+                    const val = event?.target?.value || ''
+                    this.props.updateTitle(this.props.id, val)
+                }
             }
-        } />
-        const date = <input type="date" value={this.props.date} onChange={
-            (event: React.ChangeEvent<HTMLInputElement>): void => {
-                const val = event?.target?.value || ''
-                this.props.updateDate(this.props.id, val)
+        />
+        const date = <input type="date"
+            value={this.props.date}
+            className={this.props.date ? '' : 'placeholder'}
+            max="9999-12-31"
+            onChange={
+                (event: React.ChangeEvent<HTMLInputElement>): void => {
+                    const val = event?.target?.value || ''
+                    this.props.updateDate(this.props.id, val)
+                }
             }
-        } />
+        />
         return (
             <NavLink activeClassName={styles.active} to={`/board/${this.props.id}`}>
                 <div className={styles.item}>
