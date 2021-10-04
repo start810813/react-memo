@@ -34,7 +34,7 @@ class Item extends React.Component<PropsInterface> {
             }
         />
         return (
-            <NavLink activeClassName={styles.active} to={`/board/${this.props.id}`}>
+            <NavLink activeClassName={styles.active} to={`/memo/${this.props.id}`}>
                 <div className={styles.item}>
                     <div className={styles.title}>{title}</div>
                     <div className={styles.date}>{date}</div>

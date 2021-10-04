@@ -34,7 +34,8 @@ class Sidebar extends React.Component<StateInterface> {
                     timeout={100000}
                 >
                     <div ref={this.myRef} className={styles.menu}>
-                        <NavLink activeClassName={styles.active} to="/board">記事本</NavLink>
+                        <NavLink activeClassName={styles.active} to="/memo">記事本</NavLink>
+                        <NavLink activeClassName={styles.active} to="/urldecode">URLdecode</NavLink>
                     </div>
                 </CSSTransition>
             </div>

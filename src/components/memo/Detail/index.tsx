@@ -19,7 +19,7 @@ interface PropsInterface {
 class Detail extends React.Component<PropsInterface> {
     delete(id: string): any {
         this.props.deleteMemo(id)
-        this.props.history.push('/board')
+        this.props.history.push('/memo')
     }
     render(): React.ReactChild {
         const title = <input type="text"
@@ -55,7 +55,7 @@ class Detail extends React.Component<PropsInterface> {
         return (
             <div className={styles.item}>
                 <div className={styles.control}>
-                    <Link to="/board">
+                    <Link to="/memo">
                         <span>ㄑ 返回</span>
                     </Link>
                     <span className={styles.delete} onClick={() => this.delete(this.props.id)}>🅧 刪除</span>
