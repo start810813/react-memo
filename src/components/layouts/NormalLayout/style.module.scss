@@ -1,4 +1,13 @@
 .normal_layout {
     display: grid;
     grid-template-columns: 1fr 7fr;
+    height: 100vh;
+
+    @media screen and (min-width: 577px) and (max-width: 800px) {
+        grid-template-columns: 2fr 8fr;
+    }
+
+    @media screen and (max-width: 576px) {
+        grid-template-columns: 1fr 9fr;
+    }
 }

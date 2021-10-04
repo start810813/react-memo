@@ -1,0 +1,36 @@
+@media screen and (max-width: 576px) {
+    .sidebar-enter {
+        width: 0 !important;
+        padding: 2em 0;
+        opacity: 0;
+        transform: translateX(-100%);
+        &.sidebar-enter-active {
+            width: 40vw !important;
+            padding: 2em 1.5em;
+            opacity: 1;
+            transform: translateX(0%);
+            transition: all 400ms ease-out;
+        }
+    }
+    .sidebar-enter-done {
+        width: 40vw;
+    }
+    
+    .sidebar-exit {
+        width: 40vw;
+        padding: 2em 1.5em;
+        opacity: 1;
+        transform: translateX(0%);
+        &.sidebar-exit-active {
+            width: 0;
+            padding: 2em 0;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: all 400ms ease-out;
+        }
+    }
+    .sidebar-exit-done {
+        display: none;
+    }
+}
+

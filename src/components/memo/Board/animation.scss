@@ -14,11 +14,20 @@
     }
 }
 .detail-exit {
-    max-width: 100%;
-    &.detail-exit-active {
-        max-width: 0%;
-        padding-left: 0;
-        padding-right: 0;
-        transition: all 400ms ease-out;
+    @media screen and (min-width: 577px) {
+        max-width: 100%;
+        &.detail-exit-active {
+            max-width: 0%;
+            padding-left: 0;
+            padding-right: 0;
+            transition: all 400ms ease-out;
+        }
+    }
+    @media screen and (max-width: 576px) {
+        transform: translateX(0%);
+        &.detail-exit-active {
+            transform: translateX(100%);
+            transition: transform 400ms ease-out;
+        }
     }
 }

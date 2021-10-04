@@ -1,10 +1,49 @@
 .sidebar_container {
+    position: relative;
     height: 100vh;
-    padding: 2em 1.5em;
     background-color: #333333;
     box-sizing: border-box;
+    z-index: 3;
+
+    .menu {
+        padding: 2em 1.5em;
+        & > a, & > span {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+    }
+
+    .toggle {
+        display: none;
+        color: #ffffff;
+        padding: 1em 0.5em;
+        border-radius: 5px;
+        font-size: 20px;
+        text-align: right;
+        cursor: pointer;
+        &::after {
+            content: '☰';
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .toggle {
+            display: block;
+        }
+        &.active {
+            .toggle {
+                &::after {
+                    content: '𝗫';
+                }
+            }
+            .menu {
+                width: 40vw;
+            }
+        }
+    }
 }
 
 .active {
-    color: white;
+    color: #ffffff;
 }
