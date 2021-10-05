@@ -12,14 +12,26 @@ class Board extends React.Component {
         decoded: ''
     }
     decodeUrl(value: string): void {
+        let decoded: string
+        try {
+            decoded = decodeURIComponent(value)
+        } catch {
+            decoded = 'Wrong format...'
+        }
         this.setState({
             encoded: value,
-            decoded: decodeURI(value)
+            decoded: decoded
         })
     }
     encodeUrl(value: string): void {
+        let encoded: string
+        try {
+            encoded = encodeURIComponent(value)
+        } catch {
+            encoded = 'Wrong format...'
+        }
         this.setState({
-            encoded: encodeURI(value),
+            encoded: encoded,
             decoded: value
         })
     }

@@ -16,6 +16,14 @@
             margin-bottom: 20px;
             word-break: keep-all;
         }
+
+        & > a {
+            color: #AAAAAA;
+            transition: color 300ms ease-out;
+            &.active {
+                color: #ffffff;
+            }
+        }
     }
 
     .toggle {
@@ -47,8 +55,4 @@
             }
         }
     }
-}
-
-.active {
-    color: #ffffff;
 }
