@@ -7,7 +7,7 @@ import './assets/styles/common.scss'
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.REACT_APP_BASE_URL}>
             <Switch>
                 <NormalLayout />
             </Switch>
