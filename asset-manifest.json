@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/react-memo/static/css/main.658214a4.chunk.css",
-    "main.js": "/react-memo/static/js/main.5604b0a1.chunk.js",
-    "main.js.map": "/react-memo/static/js/main.5604b0a1.chunk.js.map",
+    "main.css": "/react-memo/static/css/main.ed64b5b1.chunk.css",
+    "main.js": "/react-memo/static/js/main.950050e7.chunk.js",
+    "main.js.map": "/react-memo/static/js/main.950050e7.chunk.js.map",
     "runtime-main.js": "/react-memo/static/js/runtime-main.16251f23.js",
     "runtime-main.js.map": "/react-memo/static/js/runtime-main.16251f23.js.map",
     "static/js/2.7c2fb400.chunk.js": "/react-memo/static/js/2.7c2fb400.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.710b3333.chunk.js": "/react-memo/static/js/3.710b3333.chunk.js",
     "static/js/3.710b3333.chunk.js.map": "/react-memo/static/js/3.710b3333.chunk.js.map",
     "index.html": "/react-memo/index.html",
-    "static/css/main.658214a4.chunk.css.map": "/react-memo/static/css/main.658214a4.chunk.css.map",
+    "static/css/main.ed64b5b1.chunk.css.map": "/react-memo/static/css/main.ed64b5b1.chunk.css.map",
     "static/js/2.7c2fb400.chunk.js.LICENSE.txt": "/react-memo/static/js/2.7c2fb400.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.16251f23.js",
     "static/js/2.7c2fb400.chunk.js",
-    "static/css/main.658214a4.chunk.css",
-    "static/js/main.5604b0a1.chunk.js"
+    "static/css/main.ed64b5b1.chunk.css",
+    "static/js/main.950050e7.chunk.js"
   ]
 }
