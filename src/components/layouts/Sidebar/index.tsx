@@ -18,7 +18,6 @@ class Sidebar extends React.Component<StateInterface> {
         isActive: true
     }
     toggleSidebar(): void {
-        console.log(this.state.isActive)
         this.setState({
             isActive: !this.state.isActive
         })

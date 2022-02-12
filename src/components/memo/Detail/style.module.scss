@@ -1,38 +1,38 @@
 .item {
-    height: 100vh;
-    & > div {
-        width: 100%;
-        margin-bottom: 20px;
-        span {
-            display: block;
-            padding-left: 5px;
-            margin-bottom: 5px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #333333;
-        }
-
-        input, textarea {
-            width: 100%;
-            height: 45px;
-            padding: 5px 10px;
-            background-color: #ffffff;
-        }
+  height: 100vh;
+  & > div {
+    width: 100%;
+    margin-bottom: 20px;
+    span {
+      display: block;
+      padding-left: 5px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #333333;
     }
 
-    .control {
-        display: flex;
-        justify-content: space-between;
+    input,
+    textarea {
+      width: 100%;
+      height: 45px;
+      padding: 5px 10px;
+      background-color: #ffffff;
     }
+  }
 
-    .delete {
-        cursor: pointer;
-    }
+  .control {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    .content {
-        textarea {
-            height: 50vh;
-        }
+  .delete {
+    cursor: pointer;
+  }
+
+  .content {
+    textarea {
+      height: 50vh;
     }
+  }
 }
-

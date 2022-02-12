@@ -15,8 +15,14 @@ class Item extends React.Component<PropsInterface> {
         const title = <input type="text"
             value={this.props.title}
             placeholder='請輸入記事標題..'
+            onClick={
+                (event: React.MouseEvent<HTMLInputElement>) => {
+                    this.removeMobileFocus(event)
+                }
+            }
             onInput={
                 (event: React.ChangeEvent<HTMLInputElement>): void => {
+                    
                     const val = event?.target?.value || ''
                     this.props.updateTitle(this.props.id, val)
                 }
@@ -42,7 +48,12 @@ class Item extends React.Component<PropsInterface> {
             </NavLink>
         )
     }
+    removeMobileFocus(event: React.MouseEvent<HTMLInputElement>): void {
+        if (window.innerWidth <= 576) {
+            event.currentTarget.blur()
+            event.preventDefault()
+        }
+    }
 }
-
 
 export default Item
